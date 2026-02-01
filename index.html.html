@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Ayesha ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb3c6, #ffd6e0);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 22px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.18);
+      text-align: center;
+      max-width: 420px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      color: #e63946;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      color: #c9184a;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .yes {
+      background: #e63946;
+      color: white;
+    }
+
+    .no {
+      background: #e0e0e0;
+      color: #333;
+      position: relative;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.6rem;
+      animation: floatUp 4s linear forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Hey Shasha ❤️</h1>
+    <p>
+      Ayesha, you make everything feel softer, warmer, and better.<br>
+      Affan has been meaning to ask you something important…
+    </p>
+
+    <h2>Will you be my Valentine? 💘</h2>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" onmouseover="moveNo()">No 🙃</button>
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      const card = document.getElementById('card');
+      card.innerHTML = `
+        <h1>YAY 💕</h1>
+        <p>
+          I knew it.<br>
+          You make my world happier just by being in it.
+        </p>
+        <p>
+          i love you (dont die)
+        </p>
+        <p>— Affan ❤️</p>
+      `;
+      startHearts();
+    }
+
+    function moveNo() {
+      const noBtn = document.querySelector('.no');
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 220 - 110;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '-20px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }, 280);
+    }
+  </script>
+
+</body>
+</html>
